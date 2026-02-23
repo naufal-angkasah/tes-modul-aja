@@ -1,6 +1,8 @@
 # tes-modul-aja
 Projek ini dibuat untuk memenuhi modul ajar koding di Man Model Banda aceh
 
+Demo bisa dilihat: https://tes-modul-aja.vercel.app/
+
 - untuk modul yang machine learning silahkan lihat pada link ini ya
   1. **Pengenalan Phython**
 	```bash
