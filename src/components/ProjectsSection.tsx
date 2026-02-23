@@ -13,7 +13,7 @@ const projects = [
     demo: '#',
   },
   {
-    title: 'Learning Management System',
+    title: 'Meja dan kursi',
     description: 'Platform pembelajaran online dengan video streaming, quiz interaktif, dan progress tracking.',
     tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebRTC'],
     image: '📚',
@@ -21,15 +21,16 @@ const projects = [
     github: '#',
     demo: '#',
   },
-  {
-    title: 'Social Media Dashboard',
-    description: 'Dashboard analytics untuk social media dengan real-time data visualization dan reporting.',
-    tags: ['React', 'D3.js', 'Firebase', 'Tailwind'],
-    image: '📊',
-    color: 'from-orange-500/20 to-red-500/20',
+    {
+    title: 'Kelas',
+    description: 'Platform pembelajaran online dengan video streaming, quiz interaktif, dan progress tracking.',
+    tags: ['Meja', 'TypeScript', 'MongoDB', 'WebRTC'],
+    image: '📚',
+    color: 'from-purple-500/20 to-pink-500/20',
     github: '#',
     demo: '#',
   },
+ 
   {
     title: 'AI Content Generator',
     description: 'Tool untuk generate konten menggunakan AI dengan integrasi berbagai model language.',
