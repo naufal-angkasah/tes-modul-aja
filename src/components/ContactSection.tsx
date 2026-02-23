@@ -86,7 +86,7 @@ export default function ContactSection() {
       });
 
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error sending email:', error);
       toast({
         title: 'Gagal Mengirim',
