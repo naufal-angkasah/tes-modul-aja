@@ -38,13 +38,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
           >
-            STAN
+            Fullstack koding x2
             <br />
-            <span className="text-gradient">&amp; Stis</span>
-             <br />
-             <span className="">&amp; wffeyf8</span>
+            <span className="text-gradient">&amp; Kaca mata</span>
           </motion.h1>
-
+ <span className="text-gradient md:text-6xl">&amp; meja</span>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
