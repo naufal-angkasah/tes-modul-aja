@@ -40,7 +40,7 @@ export default function HeroSection() {
           >
             Fullstack koding x2
             <br />
-            <span className="text-gradient">&amp; Kaca mata</span>
+            <span className="text-gradient">Pustaka wilayah</span>
           </motion.h1>
  <span className="text-gradient md:text-6xl">&amp; meja</span>
           <motion.p
