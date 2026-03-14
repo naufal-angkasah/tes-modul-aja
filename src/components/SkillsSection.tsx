@@ -2,20 +2,20 @@ import { motion } from 'framer-motion';
 
 const skills = {
   frontend: [
+    { name: 'Vue.js', level: 100 },
     { name: 'React', level: 95 },
     { name: 'TypeScript', level: 90 },
     { name: 'Next.js', level: 88 },
     { name: 'Tailwind CSS', level: 95 },
-    { name: 'Vue.js', level: 75 },
   ],
   backend: [
     { name: 'Node.js', level: 90 },
-    { name: 'Python', level: 85 },
+    { name: 'Python', level: 98 },
     { name: 'PostgreSQL', level: 88 },
-    { name: 'MongoDB', level: 82 },
-    { name: 'GraphQL', level: 78 },
+    { name: 'MongoDB', level: 90 },
+    { name: 'MySql', level: 92 },
   ],
-  tools: [
+  DevOps: [
     { name: 'Git', level: 95 },
     { name: 'Docker', level: 80 },
     { name: 'AWS', level: 75 },
@@ -63,7 +63,7 @@ export default function SkillsSection() {
         >
           <span className="text-primary font-medium mb-2 block">Keahlian</span>
           <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Skills &amp; Teknologi
+            Hard Skills
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
@@ -111,7 +111,7 @@ export default function SkillsSection() {
             </div>
           </motion.div>
 
-          {/* Tools */}
+          {/* DevOps */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -123,10 +123,10 @@ export default function SkillsSection() {
               <div className="p-3 rounded-xl bg-primary/10">
                 <span className="text-2xl">🛠️</span>
               </div>
-              <h3 className="font-display text-xl font-bold">Tools &amp; Lainnya</h3>
+              <h3 className="font-display text-xl font-bold">DevOps</h3>
             </div>
             <div className="space-y-4">
-              {skills.tools.map((skill, index) => (
+              {skills.DevOps.map((skill, index) => (
                 <SkillBar key={skill.name} {...skill} delay={index * 0.1} />
               ))}
             </div>
