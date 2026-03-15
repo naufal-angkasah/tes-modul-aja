@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+// --- 0. IMPORT ASSETS ---
+// Pastikan nama file di bawah ini SAMA PERSIS dengan yang ada di folder assets kamu
+import PetirImg from '../assets/petir.png';
+import JoinUsGif from '../assets/joinus.gif'; // <--- LENGKAPI NAMA FILENYA
+import WeatherImg from '../assets/weatheer.gif'; // <--- LENGKAPI NAMA FILENYA
 
 // 1. Varian Animasi untuk efek Slide yang smooth
 const slideVariants = {
@@ -41,62 +46,48 @@ const CardCarousel = ({ images }: { images: string[] }) => {
   }, [page]);
 
   return (
-    <div className="relative group/carousel flex items-center justify-center w-full h-full overflow-hidden rounded-xl touch-none">
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.span
-          key={page}
-          custom={direction}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 }
-          }}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          onDragEnd={(e, { offset, velocity }) => {
-            const swipe = Math.abs(offset.x) > 50;
-            if (swipe) {
-              paginate(offset.x > 0 ? -1 : 1);
-            }
-          }}
-          className="text-6xl absolute select-none cursor-grab active:cursor-grabbing"
-        >
-          {images[imageIndex]}
-        </motion.span>
-      </AnimatePresence>
-
-      {/* Navigasi Panah (Hanya Desktop Hover) */}
-      <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 z-10">
-        <button
-          onClick={(e) => { e.preventDefault(); paginate(-1); }}
-          className="p-1.5 rounded-full bg-black/20 backdrop-blur-md hover:bg-black/40 text-white transition-colors"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-        <button
-          onClick={(e) => { e.preventDefault(); paginate(1); }}
-          className="p-1.5 rounded-full bg-black/20 backdrop-blur-md hover:bg-black/40 text-white transition-colors"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      </div>
-      
-      {/* Indikator Dots */}
-      <div className="absolute bottom-3 flex gap-1.5 z-10">
-        {images.map((_, i) => (
-          <div
-            key={i}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === imageIndex ? 'w-4 bg-white' : 'w-1.5 bg-white/40'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+      <div className="relative group/carousel flex items-center justify-center w-full h-full overflow-hidden rounded-xl bg-black/5">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.img
+              key={page}
+              src={images[imageIndex]}
+              custom={direction}
+              variants={slideVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = Math.abs(offset.x) > 50;
+                if (swipe) paginate(offset.x > 0 ? -1 : 1);
+              }}
+              className="absolute w-full h-full object-cover select-none cursor-grab active:cursor-grabbing"
+            />
+          </AnimatePresence>
+    
+          {/* Navigasi Panah */}
+          <div className="absolute inset-0 flex items-center justify-between px-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity z-10">
+            <button onClick={() => paginate(-1)} className="p-1 rounded-full bg-black/30 text-white backdrop-blur-sm">
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button onClick={() => paginate(1)} className="p-1 rounded-full bg-black/30 text-white backdrop-blur-sm">
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+          
+          {/* Dots */}
+          <div className="absolute bottom-2 flex gap-1 z-10">
+            {images.map((_, i) => (
+              <div key={i} className={`h-1 rounded-full transition-all ${i === imageIndex ? 'w-4 bg-white' : 'w-1 bg-white/50'}`} />
+            ))}
+          </div>
+        </div>
   );
 };
 
@@ -106,7 +97,7 @@ const projects = [
     title: 'E-Commerce Platform',
     description: 'Platform e-commerce modern dengan fitur lengkap termasuk payment gateway, inventory management, dan analytics dashboard.',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    image: ['🛒', '💳', '📦'],
+    image: [PetirImg, JoinUsGif, WeatherImg],
     color: 'from-blue-500/20 to-cyan-500/20',
     github: '#',
     demo: '#',
@@ -115,7 +106,7 @@ const projects = [
     title: 'Learning Management System',
     description: 'Platform pembelajaran online dengan video streaming, quiz interaktif, dan progress tracking.',
     tags: ['Next.js', 'TypeScript', 'MongoDB', 'WebRTC'],
-    image: ['📚', '👨‍🏫', '📝'],
+    image: [JoinUsGif, PetirImg, WeatherImg],
     color: 'from-purple-500/20 to-pink-500/20',
     github: '#',
     demo: '#',
@@ -124,7 +115,7 @@ const projects = [
     title: 'AI Content Generator',
     description: 'Tool untuk generate konten menggunakan AI dengan integrasi berbagai model language.',
     tags: ['Python', 'FastAPI', 'OpenAI', 'React'],
-    image: ['🤖', '✍️', '✨'],
+    image: [ WeatherImg, PetirImg, JoinUsGif],
     color: 'from-green-500/20 to-teal-500/20',
     github: '#',
     demo: '#',
@@ -133,7 +124,7 @@ const projects = [
     title: 'Video Editing Tutorial',
     description: 'Seri tutorial video editing dengan 100+ episode dan 10k+ subscribers.',
     tags: ['Premiere Pro', 'After Effects', 'YouTube'],
-    image: ['🎬', '🎥', '✂️'],
+    image: [PetirImg, JoinUsGif, WeatherImg],
     color: 'from-red-500/20 to-orange-500/20',
     isContent: true,
     youtube: '#',
@@ -142,7 +133,7 @@ const projects = [
     title: 'Coding Tips & Tricks',
     description: 'Konten tips programming dan best practices untuk developer Indonesia.',
     tags: ['Instagram', 'TikTok', 'YouTube Shorts'],
-    image: ['💡', '💻', '🔥'],
+    image: [PetirImg, JoinUsGif, WeatherImg],
     color: 'from-cyan-500/20 to-blue-500/20',
     isContent: true,
     youtube: '#',

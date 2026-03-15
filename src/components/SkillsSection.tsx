@@ -19,7 +19,7 @@ const skills = {
     { name: 'Git', level: 95 },
     { name: 'Docker', level: 80 },
     { name: 'AWS', level: 75 },
-    { name: 'Figma', level: 85 },
+    // { name: 'Figma', level: 85 },
     { name: 'CI/CD', level: 82 },
   ],
 };
