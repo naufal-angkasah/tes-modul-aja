@@ -5,7 +5,7 @@ const skills = {
     { name: 'Vue.js', level: 100 },
     { name: 'React', level: 95 },
     { name: 'TypeScript', level: 90 },
-    { name: 'Next.js', level: 88 },
+    { name: 'swift', level: 88 },
     { name: 'Tailwind CSS', level: 95 },
   ],
   backend: [
